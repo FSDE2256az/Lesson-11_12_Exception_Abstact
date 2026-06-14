@@ -1,4 +1,5 @@
 ﻿using Lesson_11_12_Exception_Abstact.Task.FirstVersion;
+using Lesson_11_12_Exception_Abstact.Task.SecondVersion;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,12 +33,26 @@ public class VictorianFactory
 
     public object CreateChair()
     {
+        if (ModelName == "Victorian")
+            return new VictorianChair();
 
+        else if (ModelName == "ArtDeco")
+            return new ArtDecoChair();
+
+        else
+            return new ModernChair();
     }
 
     public object CreateCofeeTable()
     {
+        if (ModelName == "Victorian")
+            return new VictorianCoffeeTable();
 
+        else if (ModelName == "ArtDeco")
+            return new ArtDecoCoffeeTable();
+
+        else
+            return new ModernCoffeeTable();
     }
 
 }
