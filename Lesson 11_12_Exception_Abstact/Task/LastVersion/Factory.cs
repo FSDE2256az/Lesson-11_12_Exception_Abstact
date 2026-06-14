@@ -81,15 +81,38 @@ class ArtDecoChair : Chair
 }
 
 
-
-
-
-
-public class Factory
+abstract class Factory
 {
-    public Sofa CreateSofa();
-    public Chair CreateChair() ;
+    public abstract Sofa CreateSofa();
+    public abstract Chair CreateChair() ;
     public abstract CoffeeTable CreateCoffeeTable();
+}
 
 
+class VictorianFactory : Factory
+{
+    public override Chair CreateChair() => new VictorianChair();
+
+    public override CoffeeTable CreateCoffeeTable() => new VictorianCoffeeTable();
+
+    public override Sofa CreateSofa() => new VictorianSofa();
+}
+
+
+class ArtDecoFactory : Factory
+{
+    public override Chair CreateChair() => new ArtDecoChair();
+
+    public override CoffeeTable CreateCoffeeTable() => new ArtDecoCoffeeTable();
+
+    public override Sofa CreateSofa() => new ArtDecoSofa();
+}
+
+class ModernFactory : Factory
+{
+    public override Chair CreateChair() => new ModernChair();
+
+    public override CoffeeTable CreateCoffeeTable() => new ModernCoffeeTable();
+
+    public override Sofa CreateSofa() => new ModernSofa();
 }
