@@ -4,6 +4,15 @@
 abstract class Sofa { };
 abstract class CoffeeTable {  };
 abstract class Chair {  };
+abstract class Wheel { };
+
+class VictorianWheel : Wheel
+{
+    public VictorianWheel()
+    {
+        Console.WriteLine("VictorianWheel");
+    }
+}
 
 
 class VictorianSofa : Sofa
@@ -86,6 +95,7 @@ abstract class Factory
     public abstract Sofa CreateSofa();
     public abstract Chair CreateChair() ;
     public abstract CoffeeTable CreateCoffeeTable();
+    public abstract Wheel CreateWheel();
 }
 
 
@@ -96,6 +106,8 @@ class VictorianFactory : Factory
     public override CoffeeTable CreateCoffeeTable() => new VictorianCoffeeTable();
 
     public override Sofa CreateSofa() => new VictorianSofa();
+
+    public override Wheel CreateWheel() => new VictorianWheel();
 }
 
 
